@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import s from './App.module.css';
+import {IconButton, TextField} from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className={s.App}>
+            <div className={s.container}>
+                <div className={s.displayMain}>
+                    <div className={s.companion}>
+
+                    </div>
+                    <div className={s.display}>
+
+                    </div>
+                    <div className={s.btnInp}>
+                        <TextField variant={'outlined'}
+                                   label={'Enter your message'}
+                                   sx={{m: '10px'}}
+                        />
+                        <IconButton color={'primary'}><SendIcon/></IconButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
