@@ -1,24 +1,31 @@
 import React, {FC, useEffect, useState} from 'react';
 import s from "./App.module.css";
 import {MessageType} from "./App";
+import {IconButton} from "@mui/material";
+import {Delete} from "@mui/icons-material";
+import EditIcon from '@mui/icons-material/Edit';
 
 type MessageMeType = {
     message: MessageType
     containerStyle: string
     messageStyle: string
-    timeStyle: string
+    funcContainer: string
     angleStyle: string
     imgSrc: string
     alt: string
+    id: string
+    deleteMessage: (id: string) => void
 }
 
 export const Message: FC<MessageMeType> = ({message,
                                                containerStyle,
                                                messageStyle,
-                                               timeStyle,
+                                               funcContainer,
                                                angleStyle,
                                                imgSrc,
-                                               alt
+                                               alt,
+                                               deleteMessage,
+                                               id
 }) => {
 
   const [creationTime, setCreationTime] = useState<Date>();
@@ -35,11 +42,21 @@ export const Message: FC<MessageMeType> = ({message,
 
     const stringTime = `${timeFormat.format(creationTime)}`
 
+    const deleteMessageCB = () => deleteMessage(id)
+
     if (alt === "Mr. Smith") {
         return <li className={containerStyle}>
             <div className={messageStyle}>
                 <div>{message.message}</div>
-                <div className={timeStyle}>{stringTime}</div>
+                <div className={funcContainer}>
+                    <IconButton onClick={deleteMessageCB}>
+                        <Delete/>
+                    </IconButton>
+                    <IconButton>
+                        <EditIcon/>
+                    </IconButton>
+                    {stringTime}
+                </div>
             </div>
             <div className={angleStyle}></div>
             <img
@@ -56,7 +73,15 @@ export const Message: FC<MessageMeType> = ({message,
             <div className={angleStyle}></div>
             <div className={messageStyle}>
                 <div>{message.message}</div>
-                <div className={timeStyle}>{stringTime}</div>
+                <div className={funcContainer}>
+                    <IconButton onClick={deleteMessageCB}>
+                        <Delete/>
+                    </IconButton>
+                    <IconButton>
+                        <EditIcon/>
+                    </IconButton>
+                    {stringTime}
+                </div>
             </div>
         </li>
     }

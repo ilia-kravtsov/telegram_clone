@@ -60,6 +60,11 @@ function App() {
         }
     }
 
+    const deleteMessage = (id: string) => {
+        const newAllMessages = allMessages.filter(m => m.id !== id)
+        setAllMessages(newAllMessages)
+    }
+
     return (
         <div className={s.App}>
             <div className={s.container}>
@@ -78,28 +83,26 @@ function App() {
                                     return <Message message={message}
                                                     containerStyle={s.meContainerLi}
                                                     messageStyle={s.messMe}
-                                                    timeStyle={s.time}
+                                                    funcContainer={s.functionalContainer}
                                                     angleStyle={s.angleMe}
                                                     imgSrc="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
                                                     alt="Mr. Smith"
+                                                    deleteMessage={deleteMessage}
+                                                    key={message.id}
+                                                    id={message.id}
                                     />
                                 } else if (message.whose === 'hers') {
                                     return <Message message={message}
                                                     containerStyle={s.herContainerLi}
                                                     messageStyle={s.messHer}
-                                                    timeStyle={s.time}
+                                                    funcContainer={s.functionalContainer}
                                                     angleStyle={s.angleHer}
                                                     imgSrc="https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1"
                                                     alt="Mrs. Smith"
+                                                    deleteMessage={deleteMessage}
+                                                    key={message.id}
+                                                    id={message.id}
                                     />
-                                    // return <li className={s.herContainerLi}>
-                                    //     <img
-                                    //         src='https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1'
-                                    //         alt="Groot" className={s.ava}
-                                    //     />
-                                    //     <div className={s.angleHer}></div>
-                                    //     <div className={s.messHer}>{message.message}</div>
-                                    // </li>
                                 }
                             })}
                         </ul>
@@ -136,23 +139,29 @@ function App() {
                         <ul className={s.displayUl} ref={listReff}>
                             {allMessages.map(message => {
                                 if (message.whose === 'my') {
-                                    return <li className={s.herContainerLi}>
-                                        <img
-                                            src="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
-                                            alt="Groot" className={s.ava}
-                                        />
-                                        <div className={s.angleHer}></div>
-                                        <div className={s.messHerHers}>{message.message}</div>
-                                    </li>
+                                    return <Message message={message}
+                                                    containerStyle={s.herContainerLi}
+                                                    messageStyle={s.messHer}
+                                                    funcContainer={s.functionalContainer}
+                                                    angleStyle={s.angleHer}
+                                                    imgSrc="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
+                                                    alt="Mrs. Smith"
+                                                    deleteMessage={deleteMessage}
+                                                    key={message.id}
+                                                    id={message.id}
+                                    />
                                 } else if (message.whose === 'hers') {
-                                    return <li className={s.meContainerLi}>
-                                        <div className={s.messMe}>{message.message}</div>
-                                        <div className={s.angleMe}></div>
-                                        <img
-                                            src='https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1'
-                                            alt="Groot" className={s.ava}
-                                        />
-                                    </li>
+                                    return <Message message={message}
+                                                    containerStyle={s.meContainerLi}
+                                                    messageStyle={s.messMe}
+                                                    funcContainer={s.functionalContainer}
+                                                    angleStyle={s.angleMe}
+                                                    imgSrc="https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1"
+                                                    alt="Mr. Smith"
+                                                    deleteMessage={deleteMessage}
+                                                    key={message.id}
+                                                    id={message.id}
+                                    />
                                 }
                             })}
                         </ul>
