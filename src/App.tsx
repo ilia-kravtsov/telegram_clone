@@ -65,6 +65,11 @@ function App() {
         setAllMessages(newAllMessages)
     }
 
+    const changeMessage = (mess: string, id: string) => {
+        const newAllMessages = allMessages.map(m => m.id === id ? {...m, message: mess} : m)
+        setAllMessages(newAllMessages)
+    }
+
     return (
         <div className={s.App}>
             <div className={s.container}>
@@ -88,6 +93,7 @@ function App() {
                                                     imgSrc="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
                                                     alt="Mr. Smith"
                                                     deleteMessage={deleteMessage}
+                                                    changeMessage={changeMessage}
                                                     key={message.id}
                                                     id={message.id}
                                     />
@@ -100,6 +106,7 @@ function App() {
                                                     imgSrc="https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1"
                                                     alt="Mrs. Smith"
                                                     deleteMessage={deleteMessage}
+                                                    changeMessage={changeMessage}
                                                     key={message.id}
                                                     id={message.id}
                                     />
@@ -147,6 +154,7 @@ function App() {
                                                     imgSrc="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
                                                     alt="Mrs. Smith"
                                                     deleteMessage={deleteMessage}
+                                                    changeMessage={changeMessage}
                                                     key={message.id}
                                                     id={message.id}
                                     />
@@ -159,6 +167,7 @@ function App() {
                                                     imgSrc="https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1"
                                                     alt="Mr. Smith"
                                                     deleteMessage={deleteMessage}
+                                                    changeMessage={changeMessage}
                                                     key={message.id}
                                                     id={message.id}
                                     />

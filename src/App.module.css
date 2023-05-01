@@ -5,7 +5,8 @@
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
-    background-color: lightgrey;
+    background-image: url(background/3312919.jpg);
+    background-size: cover;
     flex-wrap: wrap;
 }
 
@@ -237,4 +238,13 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        margin: 50px 0 50px 0;
+    }
+    .containerHers {
+        margin: 50px 0 50px 0;
+    }
 }
