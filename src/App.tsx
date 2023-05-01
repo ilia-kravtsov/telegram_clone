@@ -4,24 +4,23 @@ import {IconButton, TextField} from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import {v1} from "uuid";
 import {useAutoAnimate} from "@formkit/auto-animate/react";
+import {Message} from "./Message";
 
-type MessageType = { id: string, message: string, whose: 'my' | 'hers' }
+export type MessageType = { id: string, message: string, whose: 'my' | 'hers' }
 
 type MessagesType = Array<MessageType>
 
 function App() {
 
-    const me = 'me'
-    const her = 'her'
-
     let [addMyMess, setAddMyMess] = useState<string>('')
     let [addHerMess, setHerMess] = useState<string>('')
 
     let [allMessages, setAllMessages] = useState<MessagesType>([
-        {id: v1(), message: 'hi', whose: 'my'},
-        {id: v1(), message: 'hey, how is it going?', whose: 'hers'},
+        {id: v1(), message: 'will you marry me?', whose: 'my'},
+        {id: v1(), message: 'maybe', whose: 'hers'},
     ])
     const [listRef] = useAutoAnimate<HTMLUListElement>()
+    const [listReff] = useAutoAnimate<HTMLUListElement>()
     const ref = useRef<HTMLDivElement>(null)
     const ref_2 = useRef<HTMLDivElement>(null)
 
@@ -67,32 +66,40 @@ function App() {
                 <div className={s.displayMain}>
                     <div className={s.companion}>
                         <img
-                            src='https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1'
+                            src='https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg'
                             alt="Groot" className={s.companionAva}
                         />
-                        <div className={s.companionName}>Mrs. Smith</div>
+                        <div className={s.companionName}>Mr. Smith</div>
                     </div>
                     <div className={s.display} ref={ref}>
                         <ul ref={listRef} className={s.displayUl}>
                             {allMessages.map(message => {
                                 if (message.whose === 'my') {
-                                    return <li className={s.meContainerLi}>
-                                        <div className={s.messMe}>{message.message}</div>
-                                        <div className={s.angleMe}></div>
-                                        <img
-                                            src="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
-                                            alt="Groot" className={s.avaHer}
-                                        />
-                                    </li>
+                                    return <Message message={message}
+                                                    containerStyle={s.meContainerLi}
+                                                    messageStyle={s.messMe}
+                                                    timeStyle={s.time}
+                                                    angleStyle={s.angleMe}
+                                                    imgSrc="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
+                                                    alt="Mr. Smith"
+                                    />
                                 } else if (message.whose === 'hers') {
-                                    return <li className={s.herContainerLi}>
-                                        <img
-                                            src='https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1'
-                                            alt="Groot" className={s.avaHer}
-                                        />
-                                        <div className={s.angleHer}></div>
-                                        <div className={s.messHer}>{message.message}</div>
-                                    </li>
+                                    return <Message message={message}
+                                                    containerStyle={s.herContainerLi}
+                                                    messageStyle={s.messHer}
+                                                    timeStyle={s.time}
+                                                    angleStyle={s.angleHer}
+                                                    imgSrc="https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1"
+                                                    alt="Mrs. Smith"
+                                    />
+                                    // return <li className={s.herContainerLi}>
+                                    //     <img
+                                    //         src='https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1'
+                                    //         alt="Groot" className={s.ava}
+                                    //     />
+                                    //     <div className={s.angleHer}></div>
+                                    //     <div className={s.messHer}>{message.message}</div>
+                                    // </li>
                                 }
                             })}
                         </ul>
@@ -116,23 +123,23 @@ function App() {
                     </div>
                 </div>
             </div>
-            <div className={s.container}>
+            <div className={s.containerHers}>
                 <div className={s.displayMain}>
                     <div className={s.companion}>
                         <img
-                            src="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
+                            src="https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1"
                             alt="Groot" className={s.companionAva}
                         />
-                        <div className={s.companionName}>Mr. Smith</div>
+                        <div className={s.companionName}>Mrs. Smith</div>
                     </div>
                     <div className={s.display} ref={ref_2}>
-                        <ul className={s.displayUl}>
+                        <ul className={s.displayUl} ref={listReff}>
                             {allMessages.map(message => {
                                 if (message.whose === 'my') {
                                     return <li className={s.herContainerLi}>
                                         <img
                                             src="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
-                                            alt="Groot" className={s.avaHer}
+                                            alt="Groot" className={s.ava}
                                         />
                                         <div className={s.angleHer}></div>
                                         <div className={s.messHerHers}>{message.message}</div>
@@ -143,7 +150,7 @@ function App() {
                                         <div className={s.angleMe}></div>
                                         <img
                                             src='https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1'
-                                            alt="Groot" className={s.avaHer}
+                                            alt="Groot" className={s.ava}
                                         />
                                     </li>
                                 }
