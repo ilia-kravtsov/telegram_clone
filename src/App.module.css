@@ -242,9 +242,9 @@
 
 @media screen and (max-width: 900px) {
     .container {
-        margin: 50px 0 50px 0;
+        margin: 50px 10px 50px 10px;
     }
     .containerHers {
-        margin: 50px 0 50px 0;
+        margin: 50px 10px 50px 10px;
     }
 }
