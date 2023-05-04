@@ -199,24 +199,3 @@ function App() {
 }
 
 export default App;
-/*
-<ul className={s.display}>
-                        {allMessages[me].map(message => {
-                            return <li className={s.meContainerLiHers}>
-                                <div className={s.messMe}>{message.message}</div>
-                                <div className={s.angleMe}></div>
-                                <img
-                                    src="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
-                                    alt="Groot" className={s.avaMe}/>
-                            </li>
-                        })}
-                        {allMessages[her].map(message => {
-                            return <li className={s.herContainerLiHers}>
-                                <img src='https://remarka.city/gallery/sun9-23.userapi.com/s/v1/if2/4AHw0fp3vUkkYWQTn2nKrIT0crPcM4kaIH7QDXm3tY14nIo5WqwUvfE-9BwUjUAZzxovycNW6Rn5J1bgguUEOul6.jpg?size=200x200&quality=96&crop=280,0,1106,1106&ava=1'
-                                     alt="Groot" className={s.avaHer}/>
-                                <div className={s.angleHer}></div>
-                                <div className={s.messHer}>{message.message}</div>
-                            </li>
-                        })}
-                    </ul>
- */
