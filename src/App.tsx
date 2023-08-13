@@ -8,7 +8,7 @@ import {Message} from "./Message";
 
 export type MessageType = { id: string, message: string, whose: 'my' | 'hers' }
 
-type MessagesType = Array<MessageType>
+export type MessagesType = Array<MessageType>
 
 function App() {
 
@@ -76,7 +76,7 @@ function App() {
                 <div className={s.displayMain}>
                     <div className={s.companion}>
                         <img
-                            src='https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg'
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKrBK-eMr3u6DP0wzI2zNVrOGDizdwug_pNA&usqp=CAU'
                             alt="Groot" className={s.companionAva}
                         />
                         <div className={s.companionName}>Mr. Smith</div>
@@ -90,7 +90,7 @@ function App() {
                                                     messageStyle={s.messMe}
                                                     funcContainer={s.functionalContainer}
                                                     angleStyle={s.angleMe}
-                                                    imgSrc="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
+                                                    imgSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKrBK-eMr3u6DP0wzI2zNVrOGDizdwug_pNA&usqp=CAU"
                                                     alt="Mr. Smith"
                                                     deleteMessage={deleteMessage}
                                                     changeMessage={changeMessage}
@@ -151,7 +151,7 @@ function App() {
                                                     messageStyle={s.messHer}
                                                     funcContainer={s.functionalContainer}
                                                     angleStyle={s.angleHer}
-                                                    imgSrc="https://kartinkin.net/uploads/posts/2021-03/1616119039_2-p-bred-pitt-krasivie-foto-2.jpg"
+                                                    imgSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKrBK-eMr3u6DP0wzI2zNVrOGDizdwug_pNA&usqp=CAU"
                                                     alt="Mrs. Smith"
                                                     deleteMessage={deleteMessage}
                                                     changeMessage={changeMessage}
