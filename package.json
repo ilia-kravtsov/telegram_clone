@@ -2,7 +2,7 @@
   "name": "telegram_clone_2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ilia-kravtsov.github.io/telegram_clone_2",
+  "homepage": "https://ilia-kravtsov.github.io/telegram_clone",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
